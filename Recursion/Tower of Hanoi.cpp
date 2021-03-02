@@ -20,5 +20,6 @@ long long toh(int n, int from, int to, int aux)
 
 int main()
 {
+    int n = 5;
     cout << toh(n, 1, 3, 2);
 }
