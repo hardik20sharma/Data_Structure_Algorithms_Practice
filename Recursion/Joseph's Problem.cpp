@@ -16,7 +16,7 @@ void solve(vector<int> &vec, int k, int index = 0)
     if(vec.size() == 1)
     {
         cout << vec[0]; return;
-    }
+    } 
 
     index = (index + k) % vec.size();
     vec.erase( vec.begin() + index );
