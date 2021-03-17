@@ -19,7 +19,7 @@ void solve(vector<int> &vec, int k, int index = 0)
     } 
 
     index = (index + k) % vec.size();
-    vec.erase( vec.begin() + index );
+    vec.erase(vec.begin() + index);
 
     solve(vec, k, index);
 }
