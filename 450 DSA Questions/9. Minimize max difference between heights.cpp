@@ -1,22 +1,33 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int sol(vector<int> vec, int i, int j, int k)
+int sol(vector<int> vec, int k)
 {
+    sort(vec.begin(), vec.end());
+
+    int n = vec.size(); 
     
+    int min_height = vec[0], max_height = vec[n-1];
+    
+    int result = max_height - min_height;
+
+    for(int i = 1; i < n; i++)
+        if( k <= vec[i] && k <= vec[n - 1] )
+        {
+            min_height = min(vec[0] + k, vec[i] - k);
+            max_height = max(vec[i-1] + k, vec[n-1] - k);
+            
+            result = min(result, max_height - min_height);
+        }
+
+    return result;
 }
 
 int main()
 {
-    vector<int> vec {1, 5, 15, 10}; int k = 3;
+    vector<int> vec {1, 15, 10}; int k = 6;
 
-    sort(vec.begin(), vec.end());
-
-    int min_height = vec[0], max_height = vec[vec.size()-1];
-
-    int i = 0, j = vec.size()-1;
-
-    
+    cout << sol(vec, k);
 }
 
 /*
