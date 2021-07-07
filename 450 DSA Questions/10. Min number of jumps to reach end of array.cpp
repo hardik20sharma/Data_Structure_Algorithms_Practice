@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int minJumps(vector<int> &vec)
+int minJumps(vector<int> vec)
 {
 	vector<int> jumps(vec.size());
 
@@ -14,12 +14,12 @@ int minJumps(vector<int> &vec)
     {
 		jumps[i] = INT_MAX;
 
-        	for (int j = 0; j < i; j++)
-				if (i <= (j + vec[j]) && jumps[j] != INT_MAX)
-            	{
-					jumps[i] = min(jumps[i], jumps[j] + 1);
-					break;
-				}
+        for (int j = 0; j < i; j++)
+			if (i <= (j + vec[j]) && jumps[j] != INT_MAX)
+            {
+				jumps[i] = min(jumps[i], jumps[j] + 1);
+				break;
+			}
 	}
 
 	return jumps[vec.size() - 1];
