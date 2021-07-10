@@ -10,7 +10,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<string> graycode(int n)
+vector<string> gray_code(int n)
 {
     if(n == 1)
         return {"0", "1"};
@@ -30,7 +30,7 @@ vector<string> graycode(int n)
 int main()
 {
     int n = 5;
-    vector<string> res = graycode(n);
+    vector<string> res = gray_code(n);
 
     for(string s : res)
         cout << s << " ";
