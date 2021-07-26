@@ -3,19 +3,19 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void stack_delete(stack<int> &s, int pos)
+void stack_delete(stack<int> &s, int pos)   // Deletes data from a particular position in stack
 {    
-    int temp = s.top();
-    s.pop();
+    int temp = s.top();     // Getting the top
+    s.pop();                // Popping it
 
-    if(pos)
+    if(pos)     // If pos is positive in value, we push the top we popped earlier, after calling stack_delete(s, pos-1)
     {
         stack_delete(s, pos - 1);
         s.push(temp);
     }
 }
 
-void print(stack<int> s)
+void print(stack<int> s)        // Printing the stack
 {
     for( ; !s.empty(); s.pop())
         cout << s.top() << " ";
