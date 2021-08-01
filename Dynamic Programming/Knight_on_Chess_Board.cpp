@@ -12,19 +12,22 @@ from (4, 5) to (1, 1) (4, 5) -> (5, 3) -> (3, 2) -> (1, 1)  as shown in diagram
 #include<bits/stdc++.h>
 using namespace std;
 
-struct point
+struct point        // Stores the x and y co-ordinates
 {
     int x, y;
     point(int x, int y) : x(x), y(y) { }
 };
 
+// Directions in which knight is allowed to move
 vector<point> dir { point(-2, -1), point(-1, -2), point(2, -1), point(1, -2), point(-2, 1), point(-1, 2), point(2, 1), point(1, 2), };
 
+// Function which checks if the knight is inside the board or not
 bool inside_board(point p, int n)
 {
     return (p.x < 0 || p.y < 0 || n < p.x || n < p.y) ? false : true;
 }
 
+// We use BFS to find the min steps to reach destination
 int min_steps_to_reach_destination(point start, point destination, int grid_size)
 {
     vector<vector<int>> res (grid_size + 1, vector<int>(grid_size + 1, -1));
